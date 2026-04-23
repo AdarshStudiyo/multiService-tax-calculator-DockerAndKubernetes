@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-f-tax-calculator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-f-tax-calculator
+  template:
+    metadata:
+      labels:
+        app: app-f-tax-calculator
+    spec:
+      containers:
+        - name: app-f-tax-calculator
+          image: adarshhhh21/frontend:latest
+          imagePullPolicy: Always
+          # env:
+          #   - name: ENV_VALUE
+          #     value: "Hello from app.yaml"
+          #   - name: DB_PASSWORD
+          #     value: "abcde7"
+          # env:
+          #   - name: ENV_VALUE
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: app-config
+          #         key: APP_MESSAGE
+          #   - name: DB_PASSWORD
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: db-secret
+          #         key: DB_PASSWORD
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-f-tax-calculator
+spec:
+  selector:
+    app: app-f-tax-calculator
+  type: NodePort
+  ports:
+    - port: 5173
+      targetPort: 80
+      nodePort: 32500
+
+    
