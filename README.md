@@ -29,25 +29,6 @@ Service B (Node.js)              →  ClusterIP (internal only)
 
 ---
 
-## 📁 Project Structure
-
-📁 K8s/
-└── app2-tax-calculator/
-├── app-a.yaml        # Service A deployment + NodePort
-├── app-b.yaml        # Service B deployment + ClusterIP
-├── app-front.yaml    # Frontend deployment + NodePort
-├── config2.yaml      # ConfigMap
-└── secret2.yaml      # Secrets
-📁 docker/
-└── app2-tax-calculator/
-├── docker-compose.yml
-├── node/
-│   ├── service-a/    # Node.js backend
-│   └── service-b/    # Node.js tax service
-├── spring/           # Java Spring Boot version
-├── python/           # Python version
-└── tax-calculator-frontend/  # React frontend
----
 
 ## 🐳 Docker Hub Images
 
